@@ -1,0 +1,118 @@
+:root {
+    --black: #22201f;
+    --brown: #4b2d2d;
+    --maroon: #863841;
+    --white:  #eeeeed;
+    --green: #46b077;
+    --fonts: "Courier Prime", monospace;
+}
+
+body {
+    margin: 0;
+    background-color: var(--maroon);
+    font-family: var(--fonts);
+    color: var(--white);
+}
+
+
+
+#slayerdex {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.card:hover {
+    animation: bounce 0.5s linear;
+}
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+    40% {
+        transform: translateY(0);
+    }
+    60% {
+        transform: translateY(2px);
+    }
+    80%{
+        transform: translateY(0);
+    }
+}
+
+.container {
+    padding: 40px;
+    margin: 0 auto;
+}
+
+.card-title {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.card-text {
+    font-weight: lighter;
+    color: #666;
+    margin-left: 10px;
+}
+
+.card-image {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 auto;
+}
+.card-container {
+    display: grid;
+}
+
+.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    list-style: none;
+    padding: 40px;
+    background-color: #f4f4f4;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-back {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transform: rotateY(180deg);
+}
